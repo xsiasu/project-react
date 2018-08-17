@@ -10,6 +10,31 @@ class PhoneInfo extends Component {
     }
   }
 
+  state = {
+    //초기 설정
+    editing:false,
+    name:'',
+    phone:''
+  }
+
+  handleRemove = () => {
+
+    const {info, onRemove} = this.state;
+    onRemove(info.id);
+
+  }
+
+  handleToggleEdit = () => {
+    const {editing} =this.state;
+    this.setStage({editing : !editing});
+  }
+
+  handleChange = () => {
+    const {name, value} = e.target;
+    this.setStage({
+      [name]:value
+    })
+  }
 
   render() {
     const style = {
