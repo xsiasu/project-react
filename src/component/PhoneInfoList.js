@@ -4,13 +4,13 @@ import PhoneInfo from './PhoneInfo';
 
 class PhoneInfoList extends Component {
   static defaultProps = {
-    list : [],
+    data : [],
     onRemove: () => console.warn('onRemove is not defiend'),
     onUpdate: () => console.warn('onUpdate is not defiend')
   }
 
   render() {
-    const {data, onRemove} = this.props;
+    const {data, onRemove, onUpdate} = this.props;
     const list = data.map(
       info => (
         <PhoneInfo 
@@ -27,5 +27,3 @@ class PhoneInfoList extends Component {
 }
 
 export default PhoneInfoList;
-
-
