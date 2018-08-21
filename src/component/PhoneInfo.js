@@ -14,7 +14,7 @@ class PhoneInfo extends Component {
   state = {
     //초기 설정
     editing:false,
-    name:'',
+    name:'',                   
     phone:''
   }
 
@@ -56,9 +56,18 @@ class PhoneInfo extends Component {
     }
   }
 
+  shouldComponentUpdate(nextPorps, nextState) {
+    if (!this.state.editing
+        && !nextState.editing
+        && nextPorps.info === this.props.info) {
+      return false;
 
+    }
+    return false;
+  }
 
   render() {
+    console.log('render PhoneInfo' + this.props.info.id);
     const style = {
       border : '1px solid black',
       padding: '8px',

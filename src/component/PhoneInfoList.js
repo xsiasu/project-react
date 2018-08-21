@@ -8,8 +8,13 @@ class PhoneInfoList extends Component {
     onRemove: () => console.warn('onRemove is not defiend'),
     onUpdate: () => console.warn('onUpdate is not defiend')
   }
+  //앱이 렌더링 될때 마다 PhoneInfoList을 렌더링 하는데 자원을 아끼기 위해 사용
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.data !== this.props.data;
+  }
 
   render() {
+    console.log('render PhoneInfoList');
     const {data, onRemove, onUpdate} = this.props;
     const list = data.map(
       info => (

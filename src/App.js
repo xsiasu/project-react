@@ -17,9 +17,16 @@ class App extends Component {
         name:'kimhoyoung',
         phone:'01085397834'
       }
-    ]
+    ],
+    keyword:''
   }  
 
+  //검색할 함수 생성
+  handleChange = (e) => {
+    this.setState({
+      keyword:e.target.value
+    })
+  }
   //데이터 추가
   handleCreate = (data) => {
     const {information} = this.state;
@@ -49,13 +56,21 @@ class App extends Component {
     })
   }
   render() {
-    const {information} = this.state;
+    const {information, keyword} = this.state;
+    const filteredList = information.filter(
+      info => info.name.indexOf(keyword) !== -1
+    );
     return (
       <div>
         <PhoneForm 
           onCreate={this.handleCreate}
         />
         <p>
+          <input 
+            placeholder="검색할 이름을 입력하세요"
+            onChange={this.handleChange}
+            value={keyword}
+          />
         </p>
         //handleRemove 함수를 phoneinfolist 에 전달한다.
         <PhoneInfoList 
