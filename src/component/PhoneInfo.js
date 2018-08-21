@@ -1,4 +1,5 @@
 // file: src/component/PhoneInfo.js
+//폰의 입력정보를 보여준다 정보와 수정화면을 보여준다
 import React, {Component} from 'react';
 
 class PhoneInfo extends Component {

@@ -19,6 +19,7 @@ class App extends Component {
       }
     ]
   }  
+
   //데이터 추가
   handleCreate = (data) => {
     const {information} = this.state;
@@ -51,8 +52,16 @@ class App extends Component {
     const {information} = this.state;
     return (
       <div>
-        <PhoneForm onCreate={this.handleCreate}/>
-        <PhoneInfoList data={this.state.information}/>
+        <PhoneForm 
+          onCreate={this.handleCreate}
+        />
+        <p>
+        </p>
+        //handleRemove 함수를 phoneinfolist 에 전달한다.
+        <PhoneInfoList 
+          data={this.state.information}
+          onRemove={this.handleRemove}
+        />
       </div>
     );
   }

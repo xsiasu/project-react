@@ -1,3 +1,4 @@
+//입력폼
 import React, {Component} from 'react';
 
 class PhoneForm extends Component {
